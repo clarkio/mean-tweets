@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+
+  "name": "Mean Tweets",
+  "description":
+    "This extension allows uses Azure cognitive services to filter out tweets that may be negative.",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.twitter.com/*"],
+      "js": ["/scrub-tweets.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab", "storage", "https://*.microsoft.com/"]
+}
